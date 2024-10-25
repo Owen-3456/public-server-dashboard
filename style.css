@@ -1,0 +1,85 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2E3440;
+    color: #D8DEE9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #3B4252;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 150px;
+}
+
+h1 {
+    text-align: center;
+    color: #ECEFF4;
+    margin-bottom: 40px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 350px;
+    padding: 20px;
+    background-color: #4C566A;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service .image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.service .image img {
+    width: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.service .description {
+    flex: 2;
+}
+
+.service .description h2 {
+    color: #ECEFF4;
+    margin-bottom: 10px;
+}
+
+.service .description p {
+    color: #D8DEE9;
+}
+
+.service .description a {
+    color: #88C0D0;
+    text-decoration: none;
+}
+
+.service .description a:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
