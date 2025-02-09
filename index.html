@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Server Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Bubbles for Visual Flair -->
+    <div class="bubble small"></div>
+    <div class="bubble medium"></div>
+    <div class="bubble large"></div>
+
+    <div class="dashboard-container">
+        <h1>Owen's Server Dashboard</h1>
+
+        <div style="position: absolute; top: 20px; right: 20px;">
+            <a class="btn" href="help.html">Help</a>
+        </div>
+
+        <div class="card-grid">
+
+            <!-- Overseerr -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/overseerr.svg"
+                        alt="Overseerr" />
+                </div>
+                <div class="card-title">Overseerr</div>
+                <div class="card-description">Movie &amp; TV Request Management</div>
+                <div class="button-row">
+                    <!-- Local Port is an example; adjust to your actual setup -->
+                    <a class="btn" href="http://overseerr.local" target="_blank">Local</a>
+                    <a class="btn" href="https://overseerr.owens-services.xyz" target="_blank">External</a>
+                </div>
+            </div>
+
+            <!-- Audiobookshelf -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/audiobookshelf.svg"
+                        alt="Audiobookshelf" />
+                </div>
+                <div class="card-title">Audiobookshelf</div>
+                <div class="card-description">Audiobook &amp; Podcast Streaming</div>
+                <div class="button-row">
+                    <a class="btn" href="http://audiobookshelf.local" target="_blank">Local</a>
+                    <a class="btn" href="https://audiobookshelf.owens-services.xyz" target="_blank">External</a>
+                </div>
+            </div>
+
+            <!-- Plex (Single Card) -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg" alt="Plex" />
+                </div>
+                <div class="card-title">Plex</div>
+                <div class="card-description">Personal Media Server</div>
+                <div class="button-row">
+                    <!-- Three options: Local, External, Official -->
+                    <a class="btn" href="http://plex.local" target="_blank">Local</a>
+                    <a class="btn" href="https://plex.owens-services.xyz" target="_blank">External</a>
+                    <a class="btn" href="https://app.plex.tv" target="_blank">Official</a>
+                </div>
+            </div>
+
+            <!-- Kavita -->
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kavita.svg" alt="Kavita" />
+                </div>
+                <div class="card-title">Kavita</div>
+                <div class="card-description">Comics &amp; Book Server</div>
+                <div class="button-row">
+                    <a class="btn" href="http://kavita.local" target="_blank">Local</a>
+                    <a class="btn" href="https://kavita.owens-services.xyz" target="_blank">External</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="welcomeModal">
+        <div class="modal">
+            <h2>Welcome</h2>
+            <p>This is the new dashboard for my server. If you need help, use the Help page.</p>
+            <div class="button-row">
+                <a href="help.html" class="hlp-btn">Help</a>
+                <button class="ok-btn" id="closeModal">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('welcomeModal');
+            const closeBtn = document.getElementById('closeModal');
+
+            if (!localStorage.getItem('hasVisited')) {
+                modal.style.display = 'flex';
+                localStorage.setItem('hasVisited', 'true');
+            }
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>
