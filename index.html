@@ -126,8 +126,25 @@
                 })
                 .then(data => {
                     const lastCommit = data[0];
-                    const lastUpdated = new Date(lastCommit.commit.committer.date).toLocaleString();
-                    document.getElementById('last-updated').textContent += lastUpdated;
+                    const commitDate = new Date(lastCommit.commit.committer.date);
+                    const now = new Date();
+                    const diffMs = now - commitDate;
+                    const diffMins = Math.floor(diffMs / 60000);
+                    const diffHours = Math.floor(diffMins / 60);
+                    const diffDays = Math.floor(diffHours / 24);
+
+                    let timeString;
+                    if (diffDays > 7) {
+                        timeString = commitDate.toLocaleDateString();
+                    } else if (diffDays > 0) {
+                        timeString = `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+                    } else if (diffHours > 0) {
+                        timeString = `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+                    } else {
+                        timeString = `${diffMins} minute${diffMins > 1 ? 's' : ''} ago`;
+                    }
+
+                    document.getElementById('last-updated').textContent += timeString;
                 })
                 .catch(error => {
                     console.error('Error fetching commit data:', error);
