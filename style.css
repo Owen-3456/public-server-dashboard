@@ -309,3 +309,54 @@ a {
     color: #fff;
     text-decoration: underline;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .ok-btn,
+    .hlp-btn {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-container {
+        padding: 10px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 5px 8px;
+        font-size: 0.7rem;
+    }
+
+    .ok-btn,
+    .hlp-btn {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+}
