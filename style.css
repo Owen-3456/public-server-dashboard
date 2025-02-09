@@ -360,3 +360,9 @@ a {
         font-size: 0.7rem;
     }
 }
+
+hr {
+    border: 0;
+    border-top: 1px solid #fff;
+    margin: 20px 0;
+}
