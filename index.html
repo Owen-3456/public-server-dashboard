@@ -118,13 +118,21 @@
 
             // Fetch last commit information from GitHub API
             fetch('https://api.github.com/repos/owen-3456/public-server-dashboard/commits')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     const lastCommit = data[0];
                     const lastUpdated = new Date(lastCommit.commit.committer.date).toLocaleString();
                     document.getElementById('last-updated').textContent += lastUpdated;
                 })
-                .catch(error => console.error('Error fetching commit data:', error));
+                .catch(error => {
+                    console.error('Error fetching commit data:', error);
+                    document.getElementById('last-updated').textContent += 'Error loading update time';
+                });
         });
     </script>
 </body>
