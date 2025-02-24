@@ -17,16 +17,19 @@
     <div class="bubble large"></div>
 
     <div class="dashboard-container">
-        <h1>Owen's Server Dashboard</h1>
-
-        <div style="position: absolute; top: 20px; right: 20px;">
-            <a class="btn" href="help.html">Help</a>
+        <div class="header-container">
+            <div class="header-item"></div>
+            <h1>Owen's Server Dashboard</h1>
+            <div class="header-item">
+                <a class="btn" href="help.html">Help</a>
+            </div>
         </div>
 
         <div class="card-grid">
 
             <!-- Overseerr -->
             <a class="card" href="https://overseerr.owens-services.xyz" target="_blank">
+                <div class="status-indicator status-loading" data-service="overseerr.owens-services.xyz"></div>
                 <div class="card-icon">
                     <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/overseerr.svg"
                         alt="Overseerr" />
@@ -37,6 +40,7 @@
 
             <!-- Audiobookshelf -->
             <a class="card" href="https://audiobookshelf.owens-services.xyz" target="_blank">
+                <div class="status-indicator status-loading" data-service="audiobookshelf.owens-services.xyz"></div>
                 <div class="card-icon">
                     <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/audiobookshelf.svg"
                         alt="Audiobookshelf" />
@@ -47,6 +51,7 @@
 
             <!-- Plex (Single Card) -->
             <a class="card" id="plexCard" href="https://app.plex.tv" target="_blank">
+                <div class="status-indicator status-loading" data-service="plex.owens-services.xyz"></div>
                 <div class="card-icon">
                     <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg" alt="Plex" />
                 </div>
@@ -56,6 +61,7 @@
 
             <!-- Kavita -->
             <a class="card" href="https://kavita.owens-services.xyz" target="_blank">
+                <div class="status-indicator status-loading" data-service="kavita.owens-services.xyz"></div>
                 <div class="card-icon">
                     <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kavita.svg" alt="Kavita" />
                 </div>

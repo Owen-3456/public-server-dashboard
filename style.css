@@ -84,6 +84,30 @@ h1 {
     text-align: center;
 }
 
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-container h1 {
+    margin: 0;
+    flex-grow: 0;
+}
+
+.header-item {
+    width: 80px;
+    /* Ensures equal space on both sides of title */
+    display: flex;
+    align-items: center;
+}
+
+.header-item:last-child {
+    justify-content: flex-end;
+}
+
 /* 
       CARD GRID
     */
@@ -111,6 +135,7 @@ h1 {
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
 }
 
 .card:hover {
@@ -140,6 +165,37 @@ h1 {
     font-size: 0.9rem;
     opacity: 0.85;
     margin-bottom: 15px;
+}
+
+/* Status Indicator */
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.status-indicator:hover {
+    transform: scale(1.4);
+}
+
+.status-online {
+    background-color: #4CAF50;
+    box-shadow: 0 0 5px #4CAF50;
+}
+
+.status-offline {
+    background-color: #f44336;
+    box-shadow: 0 0 5px #f44336;
+}
+
+.status-loading {
+    background-color: #FFA500;
+    box-shadow: 0 0 5px #FFA500;
 }
 
 /* 
@@ -287,6 +343,27 @@ a {
     text-decoration: underline;
 }
 
+/* 
+      BUTTONS
+    */
+.btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .dashboard-container {
@@ -302,8 +379,8 @@ a {
     }
 
     .btn {
-        padding: 6px 10px;
-        font-size: 0.75rem;
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
 
     .ok-btn,
@@ -327,8 +404,8 @@ a {
     }
 
     .btn {
-        padding: 5px 8px;
-        font-size: 0.7rem;
+        padding: 5px 10px;
+        font-size: 0.75rem;
     }
 
     .ok-btn,

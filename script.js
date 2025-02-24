@@ -45,4 +45,71 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching commit data:', error);
             document.getElementById('last-updated').textContent += 'Error loading update time';
         });
+
+    // Function to check service status
+    async function checkServiceStatus(serviceUrl) {
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+            const response = await fetch(`https://${serviceUrl}`, {
+                method: 'HEAD', // Only fetch headers
+                cache: 'no-cache',
+                signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
+            return {
+                online: response.ok,
+                status: response.status,
+                statusText: response.statusText
+            };
+        } catch (error) {
+            console.log(`Service ${serviceUrl} appears to be down:`, error);
+            let status = 521; // Default to Cloudflare's "Web Server is down"
+            let statusText = 'Web Server Down';
+
+            // Check for specific error types
+            if (error.name === 'AbortError') {
+                status = 408; // Request Timeout
+                statusText = 'Request Timeout';
+            } else if (error.message.includes('Failed to fetch')) {
+                status = 503; // Service Unavailable
+                statusText = 'Service Unavailable';
+            } else if (error.message.includes('NetworkError')) {
+                status = 502; // Bad Gateway
+                statusText = 'Network Error';
+            }
+
+            return {
+                online: false,
+                status: status,
+                statusText: statusText
+            };
+        }
+    }
+
+    // Function to update status indicator
+    function updateStatusIndicator(element, status) {
+        element.classList.remove('status-loading');
+        element.classList.add(status.online ? 'status-online' : 'status-offline');
+        element.title = status.online ? 'Online' : 'Offline';
+    }
+
+    // Check status for all services
+    const statusIndicators = document.querySelectorAll('.status-indicator');
+    statusIndicators.forEach(async (indicator) => {
+        const serviceUrl = indicator.dataset.service;
+        const status = await checkServiceStatus(serviceUrl);
+        updateStatusIndicator(indicator, status);
+    });
+
+    // Periodically check status (every 60 seconds)
+    setInterval(() => {
+        statusIndicators.forEach(async (indicator) => {
+            const serviceUrl = indicator.dataset.service;
+            const status = await checkServiceStatus(serviceUrl);
+            updateStatusIndicator(indicator, status);
+        });
+    }, 60000);
 });
