@@ -45,22 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching commit data:', error);
             document.getElementById('last-updated').textContent += 'Error loading update time';
         });
-
-    // Plex availability check
-    const checkPlexAvailability = async () => {
-        const plexExternalBtn = document.getElementById('plexExternal');
-        const officialUrl = 'https://app.plex.tv';
-        const selfHostedUrl = 'https://plex.owens-services.xyz';
-
-        try {
-            const response = await fetch(officialUrl, { mode: 'no-cors' });
-            plexExternalBtn.href = officialUrl;
-        } catch (error) {
-            plexExternalBtn.href = selfHostedUrl;
-        }
-    };
-
-    // Check Plex availability initially and every 30 seconds
-    checkPlexAvailability();
-    setInterval(checkPlexAvailability, 30000);
 });

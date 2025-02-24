@@ -109,6 +109,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .card:hover {
@@ -138,31 +140,6 @@ h1 {
     font-size: 0.9rem;
     opacity: 0.85;
     margin-bottom: 15px;
-}
-
-/* 
-      BUTTONS WITHIN CARD
-    */
-.button-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.btn {
-    text-decoration: none;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: none;
-    border-radius: 5px;
-    padding: 8px 14px;
-    font-size: 0.85rem;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* 
