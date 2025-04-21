@@ -1,0 +1,30 @@
+[
+    {
+        "version": "2.0",
+        "date": "2025-04-21",
+        "changes": [
+            "Complete visual overhaul with a new modern dark theme.",
+            "Removed status indicators from service cards.",
+            "Added search bar to filter services.",
+            "Dynamically load services from services.json.",
+            "Dynamically load changelog from changelog.json."
+        ]
+    },
+    {
+        "version": "1.1",
+        "date": "2025-03-01",
+        "changes": [
+            "Fixed status icons"
+        ]
+    },
+    {
+        "version": "1.0",
+        "date": "2025-02-24",
+        "changes": [
+            "Simplified interface by removing external and local options",
+            "Added status icons so you can see when I break my server again",
+            "Created a changelog to view updates",
+            "Updated content and appearance of the help page"
+        ]
+    }
+]
