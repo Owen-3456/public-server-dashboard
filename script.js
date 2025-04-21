@@ -45,4 +45,24 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching commit data:', error);
             document.getElementById('last-updated').textContent += 'Error loading update time';
         });
+
+    // Search Bar Functionality
+    const searchBar = document.getElementById('searchBar');
+    const cards = document.querySelectorAll('.card-grid .card'); // Select only cards within the grid
+
+    searchBar.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+
+        cards.forEach(card => {
+            const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+            const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
+            const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
+
+            if (isVisible) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
 });

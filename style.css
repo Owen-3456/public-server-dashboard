@@ -135,6 +135,44 @@ h1 {
     justify-content: flex-end;
 }
 
+/* Search Bar Styles */
+.search-container {
+    width: 100%;
+    max-width: 400px;
+    /* Limit width */
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Slightly transparent background */
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#searchBar::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+#searchBar:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-hover);
+}
+
+/* Style for hidden cards */
+.card.hidden {
+    display: none;
+}
+
 /* 
       CARD GRID
     */
