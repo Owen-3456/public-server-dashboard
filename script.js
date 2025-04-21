@@ -46,23 +46,74 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('last-updated').textContent += 'Error loading update time';
         });
 
-    // Search Bar Functionality
-    const searchBar = document.getElementById('searchBar');
-    const cards = document.querySelectorAll('.card-grid .card'); // Select only cards within the grid
+    // Function to create a service card element
+    function createServiceCard(service) {
+        const card = document.createElement('a');
+        card.className = 'card';
+        card.href = service.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
 
-    searchBar.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
+        card.innerHTML = `
+            <div class="card-icon">
+                <img src="${service.iconUrl}" alt="${service.altText}" />
+            </div>
+            <div class="card-title">${service.name}</div>
+            <div class="card-description">${service.description}</div>
+        `;
+        return card;
+    }
 
-        cards.forEach(card => {
-            const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
-            const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
-            const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
-
-            if (isVisible) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
+    // Function to load and display services
+    async function loadServices() {
+        try {
+            const response = await fetch('services.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
+            const services = await response.json();
+            const cardGrid = document.getElementById('cardGrid');
+            cardGrid.innerHTML = ''; // Clear existing cards (if any)
+
+            services.forEach(service => {
+                const cardElement = createServiceCard(service);
+                cardGrid.appendChild(cardElement);
+            });
+
+            // Re-initialize search functionality after cards are loaded
+            initializeSearch();
+
+        } catch (error) {
+            console.error('Error loading services:', error);
+            const cardGrid = document.getElementById('cardGrid');
+            cardGrid.innerHTML = '<p style="color: var(--text-secondary);">Failed to load services.</p>';
+        }
+    }
+
+    // Search Bar Functionality (modified to be callable)
+    function initializeSearch() {
+        const searchBar = document.getElementById('searchBar');
+        const cardGrid = document.getElementById('cardGrid'); // Get the grid container
+
+        searchBar.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = cardGrid.querySelectorAll('.card'); // Select cards within the grid
+
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
+                const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
+
+                if (isVisible) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
         });
-    });
+    }
+
+    // Initial load of services
+    loadServices();
+
 });

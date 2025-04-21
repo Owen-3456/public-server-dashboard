@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Plex",
+        "description": "Personal Media Server",
+        "url": "https://app.plex.tv",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg",
+        "altText": "Plex Icon"
+    },
+    {
+        "name": "Overseerr",
+        "description": "Movie & TV Request Management",
+        "url": "https://overseerr.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/overseerr.svg",
+        "altText": "Overseerr Icon"
+    },
+    {
+        "name": "Audiobookshelf",
+        "description": "Audiobook & Podcast Streaming",
+        "url": "https://audiobookshelf.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/audiobookshelf.svg",
+        "altText": "Audiobookshelf Icon"
+    },
+    {
+        "name": "Kavita",
+        "description": "Comics & Book Server",
+        "url": "https://kavita.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kavita.svg",
+        "altText": "Kavita Icon"
+    }
+]
