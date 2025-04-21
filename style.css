@@ -1,3 +1,40 @@
+:root {
+    --bg-color-start: #1a1a2e;
+    --bg-color-end: #16213e;
+    --container-bg: rgba(22, 33, 62, 0.7);
+    /* Darker semi-transparent blue */
+    --card-bg: rgba(42, 54, 82, 0.8);
+    /* Slightly lighter blue for cards */
+    --text-primary: #e0e0e0;
+    /* Light grey for primary text */
+    --text-secondary: #a0a0c0;
+    /* Lighter purple/grey for secondary text */
+    --accent-color: #0f3460;
+    /* A deeper blue for accents */
+    --accent-hover: #537895;
+    /* Lighter blue for hover */
+    --status-online: #2ecc71;
+    /* Green */
+    --status-offline: #e74c3c;
+    /* Red */
+    --status-loading: #f39c12;
+    /* Orange */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --font-primary: 'Inter', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    /* Using Inter as a modern alternative */
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 15px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+}
+
+/* Import Inter font (optional, add to HTML head if preferred) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
 /* 
       BASIC RESET & FONT
     */
@@ -5,7 +42,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-primary);
 }
 
 html,
@@ -17,17 +54,15 @@ body {
 
 body {
     /* 
-        Original gradient background 
-        with slow animation
+        New static gradient background
       */
-    background: linear-gradient(135deg, #1d2671, #c33764);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(135deg, var(--bg-color-start), var(--bg-color-end));
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    /* Ensure content is not cut off */
+    color: var(--text-primary);
+    /* Set default text color */
 }
 
 body.help-page {
@@ -39,49 +74,41 @@ body.help-page {
     /* Prevent body from scrolling */
 }
 
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 /* 
       MAIN CONTAINER
     */
 .dashboard-container {
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    max-width: 900px;
+    backdrop-filter: blur(8px);
+    /* Slightly less blur */
+    background-color: var(--container-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 15px 35px var(--shadow-color);
+    /* Adjusted shadow */
+    padding: var(--spacing-xl);
+    max-width: 950px;
+    /* Slightly wider */
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     overflow: auto;
-    /* Make the container scrollable */
-    max-height: 90%;
-    /* Ensure the container does not exceed the viewport height */
-    margin: 20px 0;
-    /* Add margin to ensure content is not cut off */
+    max-height: 90vh;
+    /* Use viewport height */
+    margin: var(--spacing-md) 0;
+    border: 1px solid var(--border-color);
+    /* Subtle border */
 }
 
 h1 {
-    color: #fff;
-    margin-bottom: 30px;
-    font-weight: 300;
-    letter-spacing: 1px;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 500;
+    /* Slightly bolder */
+    letter-spacing: 0.5px;
     text-align: center;
+    font-size: 1.8rem;
+    /* Adjusted size */
 }
 
 .header-container {
@@ -89,7 +116,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-lg);
 }
 
 .header-container h1 {
@@ -113,8 +140,9 @@ h1 {
     */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Slightly smaller min size */
+    gap: var(--spacing-md);
     width: 100%;
 }
 
@@ -122,32 +150,40 @@ h1 {
       SERVICE CARD
     */
 .card {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    border-radius: 10px;
-    color: #fff;
+    background: var(--card-bg);
+    backdrop-filter: blur(5px);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
     text-align: center;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: var(--spacing-md);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Softer shadow */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     text-decoration: none;
     position: relative;
+    border: 1px solid var(--border-color);
+    /* Subtle border */
 }
 
 .card:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    /* Slightly less lift */
+    box-shadow: 0 10px 25px var(--shadow-color);
+    /* Enhanced shadow on hover */
+    background: rgba(52, 64, 92, 0.9);
+    /* Slightly lighter on hover */
 }
 
 /* ICON */
 .card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
+    width: 50px;
+    /* Slightly smaller icon */
+    height: 50px;
+    margin-bottom: var(--spacing-sm);
 }
 
 .card-icon svg {
@@ -156,122 +192,62 @@ h1 {
 }
 
 .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    /* Adjusted size */
+    margin-bottom: 8px;
+    /* Reduced margin */
     font-weight: 500;
 }
 
 .card-description {
-    font-size: 0.9rem;
-    opacity: 0.85;
-    margin-bottom: 15px;
-}
-
-/* Status Indicator */
-.status-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.status-indicator:hover {
-    transform: scale(1.4);
-}
-
-.status-online {
-    background-color: #4CAF50;
-    box-shadow: 0 0 5px #4CAF50;
-}
-
-.status-offline {
-    background-color: #f44336;
-    box-shadow: 0 0 5px #f44336;
-}
-
-.status-loading {
-    background-color: #FFA500;
-    box-shadow: 0 0 5px #FFA500;
-}
-
-/* 
-      DECORATIVE BUBBLES
-    */
-.bubble {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: floatBubble 10s infinite ease-in-out;
-    pointer-events: none;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
-}
-
-@keyframes floatBubble {
-    0% {
-        transform: translateY(0) translateX(0);
-    }
-
-    50% {
-        transform: translateY(-50px) translateX(20px);
-    }
-
-    100% {
-        transform: translateY(0) translateX(0);
-    }
-}
-
-.bubble.small {
-    width: 60px;
-    height: 60px;
-    top: 20%;
-    left: 10%;
-}
-
-.bubble.medium {
-    width: 100px;
-    height: 100px;
-    bottom: 10%;
-    right: 15%;
-}
-
-.bubble.large {
-    width: 150px;
-    height: 150px;
-    top: 70%;
-    left: 60%;
+    font-size: 0.85rem;
+    /* Adjusted size */
+    color: var(--text-secondary);
+    /* Use secondary text color */
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
 }
 
 /* 
       FOOTER
     */
 .footer {
-    margin-top: 40px;
+    margin-top: var(--spacing-xl);
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    /* Slightly larger */
+    width: 100%;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    /* Add separator */
+}
+
+.footer p#last-updated {
+    margin-bottom: var(--spacing-sm);
+    /* Add space below last updated */
 }
 
 .footer a {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    /* Brighter link color */
     text-decoration: none;
-    margin-left: 10px;
-    font-weight: 500;
+    margin-left: var(--spacing-sm);
+    font-weight: 400;
+    /* Normal weight */
+    transition: color 0.2s ease;
 }
 
 .footer a:hover {
-    text-decoration: underline;
+    color: var(--accent-hover);
+    /* Use accent hover color */
 }
 
-/* Update footer styles */
 .footer-links {
     display: flex;
-    gap: 20px;
+    gap: var(--spacing-md);
     justify-content: center;
-    margin-top: 10px;
+    margin-top: var(--spacing-sm);
 }
 
 /* 
@@ -285,111 +261,168 @@ Model
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    /* Dark overlay to match site theme */
+    background: rgba(10, 10, 20, 0.85);
+    /* Darker overlay */
+    backdrop-filter: blur(4px);
+    /* Add blur to overlay */
     align-items: center;
     justify-content: center;
     z-index: 9999;
 }
 
 .modal {
-    background: #222;
-    /* Match darker site theme */
-    color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 350px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background: var(--container-bg);
+    /* Use container background */
+    color: var(--text-primary);
+    padding: var(--spacing-lg);
+    /* More padding */
+    border-radius: var(--border-radius-md);
+    width: 90%;
+    /* Responsive width */
+    max-width: 400px;
+    /* Max width */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     text-align: center;
     position: relative;
+    border: 1px solid var(--border-color);
 }
 
+.modal h2 {
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.modal p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.modal .button-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+/* Update modal button styles to match .btn */
 .ok-btn,
 .hlp-btn {
     display: inline-block;
-    background: #333;
-    color: #fff;
+    background: var(--accent-color);
+    color: var(--text-primary);
     padding: 10px 20px;
-    margin-top: 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
     text-decoration: none;
-    margin-right: 10px;
-    /* Add some space between buttons */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-weight: 500;
 }
 
 .ok-btn:hover,
 .hlp-btn:hover {
-    background: #555;
+    background: var(--accent-hover);
+    transform: translateY(-2px);
 }
 
 p {
-    color: #fff;
+    color: var(--text-primary);
+    line-height: 1.6;
+    /* Improve readability */
 }
 
 li {
-    color: #fff;
+    color: var(--text-secondary);
+    /* Use secondary color for list items */
     list-style-position: inside;
     margin: 8px 0;
-    padding-left: 20px;
-    line-height: 1.5;
+    padding-left: 0;
+    /* Remove default padding */
+    line-height: 1.6;
     font-size: 0.95rem;
-    opacity: 0.9;
+}
+
+li::marker {
+    color: var(--accent-color);
+    font-weight: bold;
 }
 
 h2 {
-    color: #fff;
-    margin-bottom: 20px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+    /* Adjusted size */
+    border-bottom: 1px solid var(--border-color);
+    /* Add underline */
+    padding-bottom: var(--spacing-sm);
 }
 
 h3 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-top: var(--spacing-md);
+    /* Add top margin */
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    font-size: 1.3rem;
+    /* Adjusted size */
 }
 
 a {
-    color: #fff;
-    text-decoration: underline;
+    color: var(--accent-hover);
+    /* Use a brighter accent for links */
+    text-decoration: none;
+    /* Remove default underline */
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-primary);
+    /* Lighter on hover */
 }
 
 /* 
       BUTTONS
     */
 .btn {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background: transparent;
+    /* Transparent background */
+    color: var(--text-primary);
     padding: 8px 16px;
-    border-radius: 5px;
+    border-radius: var(--border-radius-sm);
     text-decoration: none;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    border: 1px solid var(--accent-color);
+    /* Use accent color for border */
+    font-weight: 500;
 }
 
 .btn:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--accent-color);
+    /* Fill with accent on hover */
+    color: #fff;
+    /* White text on hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Softer shadow */
 }
 
 /* Changelog styles */
 .changelog-content {
     width: 100%;
     max-width: 800px;
+    margin-top: var(--spacing-md);
+    /* Add margin */
 }
 
 .changelog-entry {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .changelog-entry:last-child {
@@ -397,29 +430,143 @@ a {
 }
 
 .changelog-date {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    margin-top: 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-sm);
+    margin-top: 5px;
+    /* Add small top margin */
 }
 
 .changelog-entry h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    /* Adjusted size */
+    margin-bottom: var(--spacing-sm);
+    border-bottom: none;
+    /* Remove underline from entry titles */
+    padding-bottom: 0;
+}
+
+.changelog-entry ul {
+    padding-left: var(--spacing-md);
+    /* Indent list */
+    list-style-type: disc;
+    /* Use standard disc */
+}
+
+.changelog-entry li {
+    margin-bottom: 5px;
+}
+
+/* Help Page Specific Styles */
+.help-text {
+    width: 100%;
+    max-width: 800px;
+    margin-top: var(--spacing-md);
+}
+
+.help-text ul,
+.help-text ol {
+    padding-left: var(--spacing-md);
+    /* Indent lists */
+}
+
+.help-text ul {
+    list-style-type: disc;
+}
+
+.help-text ol {
+    list-style-type: decimal;
+}
+
+.help-text h2 {
+    margin-top: var(--spacing-lg);
+    /* Add more space above h2 */
+}
+
+.help-text h2:first-of-type {
+    margin-top: 0;
+    /* No top margin for the very first h2 */
+}
+
+.help-text hr {
+    border-color: var(--border-color);
+    /* Use variable for hr color */
+    margin: var(--spacing-lg) 0;
+    /* Use variable for margin */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .dashboard-container {
-        padding: 20px;
+        padding: var(--spacing-md);
+        max-height: 95vh;
+        /* Allow more height on smaller screens */
+    }
+
+    h1 {
+        font-size: 1.6rem;
     }
 
     .card-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: var(--spacing-sm);
+        /* Reduce gap */
     }
 
     .card {
         padding: 15px;
+    }
+
+    .btn {
+        padding: 7px 14px;
+        /* Adjust padding */
+        font-size: 0.85rem;
+    }
+
+    .ok-btn,
+    .hlp-btn {
+        padding: 9px 18px;
+        font-size: 0.85rem;
+    }
+
+    .header-container h1 {
+        font-size: 1.4rem;
+        /* Adjust title size */
+    }
+
+    .header-item {
+        width: 60px;
+        /* Adjust header item width */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+        /* Align container to top on mobile */
+        padding-top: var(--spacing-md);
+    }
+
+    .dashboard-container {
+        padding: var(--spacing-sm);
+        width: 95%;
+        max-height: none;
+        /* Allow full scroll on mobile */
+        margin: var(--spacing-sm) 0;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        /* Single column */
+        gap: var(--spacing-sm);
+    }
+
+    .card {
+        padding: 10px;
     }
 
     .btn {
@@ -430,37 +577,58 @@ a {
     .ok-btn,
     .hlp-btn {
         padding: 8px 16px;
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .dashboard-container {
-        padding: 10px;
+        font-size: 0.8rem;
     }
 
-    .card-grid {
-        grid-template-columns: 1fr;
+    .modal {
+        width: 90%;
+        padding: var(--spacing-md);
     }
 
-    .card {
-        padding: 10px;
+    .header-container {
+        flex-direction: column;
+        /* Stack header items */
+        gap: var(--spacing-sm);
     }
 
-    .btn {
-        padding: 5px 10px;
-        font-size: 0.75rem;
+    .header-container h1 {
+        order: -1;
+        /* Move title to top */
+        margin-bottom: var(--spacing-sm);
     }
 
-    .ok-btn,
-    .hlp-btn {
-        padding: 6px 12px;
-        font-size: 0.7rem;
+    .header-item {
+        width: 100%;
+        justify-content: center;
+        /* Center buttons */
+    }
+
+    .header-item:last-child {
+        justify-content: center;
+    }
+
+    .footer {
+        margin-top: var(--spacing-lg);
+    }
+
+    .footer-links {
+        flex-direction: column;
+        /* Stack footer links */
+        gap: var(--spacing-sm);
     }
 }
 
 hr {
     border: 0;
-    border-top: 1px solid #fff;
-    margin: 20px 0;
+    height: 1px;
+    /* Give hr height */
+    background: var(--border-color);
+    /* Use variable */
+    margin: var(--spacing-md) 0;
+    /* Use variable */
+}
+
+/* Remove bubbles from HTML */
+.bubble {
+    display: none;
 }

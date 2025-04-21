@@ -3,18 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added viewport meta tag -->
     <title>Dashboard | Owen's Server</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-
 </head>
 
 <body>
-
-    <!-- Floating Bubbles for Visual Flair -->
-    <div class="bubble small"></div>
-    <div class="bubble medium"></div>
-    <div class="bubble large"></div>
 
     <div class="dashboard-container">
         <div class="header-container">
@@ -28,42 +23,39 @@
         <div class="card-grid">
 
             <!-- Overseerr -->
-            <a class="card" href="https://overseerr.owens-services.xyz" target="_blank">
-                <div class="status-indicator status-loading" data-service="overseerr.owens-services.xyz"></div>
+            <a class="card" href="https://overseerr.owens-services.xyz" target="_blank" rel="noopener noreferrer">
                 <div class="card-icon">
                     <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/overseerr.svg"
-                        alt="Overseerr" />
+                        alt="Overseerr Icon" />
                 </div>
                 <div class="card-title">Overseerr</div>
                 <div class="card-description">Movie &amp; TV Request Management</div>
             </a>
 
             <!-- Audiobookshelf -->
-            <a class="card" href="https://audiobookshelf.owens-services.xyz" target="_blank">
-                <div class="status-indicator status-loading" data-service="audiobookshelf.owens-services.xyz"></div>
+            <a class="card" href="https://audiobookshelf.owens-services.xyz" target="_blank" rel="noopener noreferrer">
                 <div class="card-icon">
                     <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/audiobookshelf.svg"
-                        alt="Audiobookshelf" />
+                        alt="Audiobookshelf Icon" />
                 </div>
                 <div class="card-title">Audiobookshelf</div>
                 <div class="card-description">Audiobook &amp; Podcast Streaming</div>
             </a>
 
             <!-- Plex (Single Card) -->
-            <a class="card" id="plexCard" href="https://app.plex.tv" target="_blank">
-                <div class="status-indicator status-loading" data-service="plex.owens-services.xyz"></div>
+            <a class="card" id="plexCard" href="https://app.plex.tv" target="_blank" rel="noopener noreferrer">
                 <div class="card-icon">
-                    <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg" alt="Plex" />
+                    <img src="https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg" alt="Plex Icon" />
                 </div>
                 <div class="card-title">Plex</div>
                 <div class="card-description">Personal Media Server</div>
             </a>
 
             <!-- Kavita -->
-            <a class="card" href="https://kavita.owens-services.xyz" target="_blank">
-                <div class="status-indicator status-loading" data-service="kavita.owens-services.xyz"></div>
+            <a class="card" href="https://kavita.owens-services.xyz" target="_blank" rel="noopener noreferrer">
                 <div class="card-icon">
-                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kavita.svg" alt="Kavita" />
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kavita.svg"
+                        alt="Kavita Icon" />
                 </div>
                 <div class="card-title">Kavita</div>
                 <div class="card-description">Comics &amp; Book Server</div>
@@ -77,7 +69,8 @@
         <footer class="footer">
             <p id="last-updated">Last updated: </p>
             <div class="footer-links">
-                <a href="https://github.com/owen-3456/public-server-dashboard" target="_blank">Source Code</a>
+                <a href="https://github.com/owen-3456/public-server-dashboard" target="_blank"
+                    rel="noopener noreferrer">Source Code</a>
                 <a href="changelog.html">Changelog</a>
             </div>
         </footer>
