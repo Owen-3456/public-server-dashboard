@@ -5,7 +5,8 @@
         "url": "https://app.plex.tv",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/plex.svg",
         "altText": "Plex Icon",
-        "available": true
+        "available": true,
+        "tags": ["Media", "Movies", "TV Shows"]
     },
     {
         "name": "Overseerr",
@@ -13,7 +14,8 @@
         "url": "https://overseerr.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/overseerr.svg",
         "altText": "Overseerr Icon",
-        "available": true
+        "available": true,
+        "tags": ["Media", "Movies", "TV Shows"]
     },
     {
         "name": "SearXNG",
@@ -21,29 +23,35 @@
         "url": "https://searxng.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/searxng.svg",
         "altText": "SearXNG Icon",
-        "available": true
+        "available": true,
+        "tags": ["Utility"]
     },
-    {"name": "Hasty Paste",
+    {
+        "name": "Hasty Paste",
         "description": "Pastebin Alternative for Code Snippets",
         "url": "https://hasty-paste.owens-services.xyz",
         "iconUrl": "https://hastypaste.docs.enchantedcode.co.uk/icon.svg",
         "altText": "Hasty Paste Icon",
-        "available": false
+        "available": false,
+        "tags": ["Utility"]
     },
-    {"name": "Kiwix",
+    {
+        "name": "Kiwix",
         "description": "Offline Wikipedia & Content Reader",
         "url": "https://kiwix.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kiwix.svg",
         "altText": "Kiwix Icon",
-        "available": true
+        "available": true,
+        "tags": ["Utility"]
     },
-    
-    {"name": "Immich", 
+    {
+        "name": "Immich", 
         "description": "Self-hosted Photo & Video Backup",
         "url": "https://immich.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/immich.svg",
         "altText": "Immich Icon",
-        "available": true
+        "available": true,
+        "tags": ["Media", "Photos"]
     },
     {
         "name": "Audiobookshelf",
@@ -51,7 +59,8 @@
         "url": "https://audiobookshelf.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/audiobookshelf.svg",
         "altText": "Audiobookshelf Icon",
-        "available": true
+        "available": true,
+        "tags": ["Media", "Books"]
     },
     {
         "name": "Kavita",
@@ -59,20 +68,25 @@
         "url": "https://kavita.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kavita.svg",
         "altText": "Kavita Icon",
-        "available": true
+        "available": true,
+        "tags": ["Media", "Books"]
     },
-    {"name": "Bookstack",
+    {
+        "name": "Bookstack",
         "description": "Documentation & Wiki Management",
         "url": "https://bookstack.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bookstack.svg",
         "altText": "Bookstack Icon",
-        "available": false
+        "available": false,
+        "tags": ["Utility"]
     },
-    {"name": "Navidrome",
+    {
+        "name": "Navidrome",
         "description": "Self-hosted Music Server",
         "url": "https://navidrome.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/navidrome.svg",
         "altText": "Navidrome Icon",
-        "available": false
+        "available": false,
+        "tags": ["Media", "Music"]
     }
 ]

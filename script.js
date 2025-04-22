@@ -46,18 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('last-updated').textContent += 'Error loading update time';
         });
 
+    const cardGrid = document.getElementById('cardGrid');
+    const searchBar = document.getElementById('searchBar');
+    const tagFiltersContainer = document.getElementById('tagFilters');
+    let allServices = []; // Store all services fetched
+    let currentFilterTag = 'All'; // Track the currently selected tag
+
     // Function to create a service card element
     function createServiceCard(service) {
-        const card = document.createElement('div'); // Change from 'a' to 'div' initially
+        const card = document.createElement('div');
         card.className = 'card';
+        // Store tags on the element for filtering
+        card.dataset.tags = service.tags ? service.tags.join(',') : '';
 
-        if (service.available !== false) { // Default to available if undefined
-            card.classList.add('available'); // Add class for available services
+        if (service.available !== false) {
+            card.classList.add('available');
             card.onclick = () => window.open(service.url, '_blank', 'noopener noreferrer');
-            card.style.cursor = 'pointer'; // Keep pointer cursor for available cards
+            card.style.cursor = 'pointer';
         } else {
             card.classList.add('unavailable');
-            card.title = `${service.name} is currently unavailable`; // Add tooltip
+            card.title = `${service.name} is currently unavailable`;
         }
 
         card.innerHTML = `
@@ -70,6 +78,70 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
+    // Function to filter and display services based on search term and tag
+    function filterAndDisplayServices() {
+        const searchTerm = searchBar.value.toLowerCase();
+        const cards = cardGrid.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+            const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
+            const tags = card.dataset.tags.split(',');
+
+            const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+            const matchesTag = currentFilterTag === 'All' || tags.includes(currentFilterTag);
+
+            if (matchesSearch && matchesTag) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Function to create tag filter buttons
+    function createTagFilters(services) {
+        const tags = new Set();
+        services.forEach(service => {
+            if (service.tags) {
+                service.tags.forEach(tag => tags.add(tag));
+            }
+        });
+
+        tagFiltersContainer.innerHTML = ''; // Clear existing buttons
+
+        // Add 'All' button
+        const allButton = document.createElement('button');
+        allButton.textContent = 'All';
+        allButton.className = 'tag-button active'; // Active by default
+        allButton.addEventListener('click', () => setFilterTag('All'));
+        tagFiltersContainer.appendChild(allButton);
+
+        // Add buttons for each unique tag
+        tags.forEach(tag => {
+            const button = document.createElement('button');
+            button.textContent = tag;
+            button.className = 'tag-button';
+            button.addEventListener('click', () => setFilterTag(tag));
+            tagFiltersContainer.appendChild(button);
+        });
+    }
+
+    // Function to set the active filter tag and update display
+    function setFilterTag(tag) {
+        currentFilterTag = tag;
+        // Update active class on buttons
+        const buttons = tagFiltersContainer.querySelectorAll('.tag-button');
+        buttons.forEach(button => {
+            if (button.textContent === tag) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+        filterAndDisplayServices(); // Re-filter cards
+    }
+
     // Function to load and display services
     async function loadServices() {
         try {
@@ -77,47 +149,27 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const services = await response.json();
-            const cardGrid = document.getElementById('cardGrid');
-            cardGrid.innerHTML = ''; // Clear existing cards (if any)
+            allServices = await response.json(); // Store services
+            cardGrid.innerHTML = ''; // Clear existing cards
 
-            services.forEach(service => {
+            allServices.forEach(service => {
                 const cardElement = createServiceCard(service);
                 cardGrid.appendChild(cardElement);
             });
 
-            // Re-initialize search functionality after cards are loaded
-            initializeSearch();
+            createTagFilters(allServices); // Create tag filters
+            initializeSearch(); // Initialize search after cards are loaded
+            filterAndDisplayServices(); // Initial display based on default filters
 
         } catch (error) {
             console.error('Error loading services:', error);
-            const cardGrid = document.getElementById('cardGrid');
             cardGrid.innerHTML = '<p style="color: var(--text-secondary);">Failed to load services.</p>';
         }
     }
 
-    // Search Bar Functionality (modified to be callable)
+    // Search Bar Functionality
     function initializeSearch() {
-        const searchBar = document.getElementById('searchBar');
-        const cardGrid = document.getElementById('cardGrid'); // Get the grid container
-
-        searchBar.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = cardGrid.querySelectorAll('.card'); // Select cards within the grid
-
-            cards.forEach(card => {
-                // Check if the card itself should be hidden by search, regardless of availability
-                const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
-                const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
-                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-
-                if (matchesSearch) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        });
+        searchBar.addEventListener('input', filterAndDisplayServices);
     }
 
     // Initial load of services
