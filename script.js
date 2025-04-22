@@ -48,11 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to create a service card element
     function createServiceCard(service) {
-        const card = document.createElement('a');
+        const card = document.createElement('div'); // Change from 'a' to 'div' initially
         card.className = 'card';
-        card.href = service.url;
-        card.target = '_blank';
-        card.rel = 'noopener noreferrer';
+
+        if (service.available !== false) { // Default to available if undefined
+            card.classList.add('available'); // Add class for available services
+            card.onclick = () => window.open(service.url, '_blank', 'noopener noreferrer');
+            card.style.cursor = 'pointer'; // Keep pointer cursor for available cards
+        } else {
+            card.classList.add('unavailable');
+            card.title = `${service.name} is currently unavailable`; // Add tooltip
+        }
 
         card.innerHTML = `
             <div class="card-icon">
@@ -100,11 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const cards = cardGrid.querySelectorAll('.card'); // Select cards within the grid
 
             cards.forEach(card => {
+                // Check if the card itself should be hidden by search, regardless of availability
                 const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
                 const description = card.querySelector('.card-description')?.textContent.toLowerCase() || '';
-                const isVisible = title.includes(searchTerm) || description.includes(searchTerm);
+                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
 
-                if (isVisible) {
+                if (matchesSearch) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');

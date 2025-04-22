@@ -196,18 +196,19 @@ h1 {
     padding: var(--spacing-md);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     /* Softer shadow */
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+    /* Added opacity transition */
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
     text-decoration: none;
     position: relative;
     border: 1px solid var(--border-color);
     /* Subtle border */
 }
 
-.card:hover {
+.card.available:hover {
+    /* Apply hover effects only to available cards */
     transform: translateY(-4px);
     /* Slightly less lift */
     box-shadow: 0 10px 25px var(--shadow-color);
@@ -216,12 +217,32 @@ h1 {
     /* Slightly lighter on hover */
 }
 
+/* Style for unavailable cards */
+.card.unavailable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    /* Indicate non-interactive */
+}
+
+.card.unavailable:hover {
+    /* Optional: Prevent hover effects on unavailable cards */
+    transform: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: var(--card-bg);
+}
+
 /* ICON */
 .card-icon {
     width: 50px;
     /* Slightly smaller icon */
     height: 50px;
     margin-bottom: var(--spacing-sm);
+}
+
+.card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .card-icon svg {

@@ -3,28 +3,76 @@
         "name": "Plex",
         "description": "Personal Media Server",
         "url": "https://app.plex.tv",
-        "iconUrl": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/plex.svg",
-        "altText": "Plex Icon"
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/plex.svg",
+        "altText": "Plex Icon",
+        "available": true
     },
     {
         "name": "Overseerr",
         "description": "Movie & TV Request Management",
         "url": "https://overseerr.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/overseerr.svg",
-        "altText": "Overseerr Icon"
+        "altText": "Overseerr Icon",
+        "available": true
+    },
+    {
+        "name": "SearXNG",
+        "description": "Privacy-Respecting Search Engine",
+        "url": "https://searxng.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/searxng.svg",
+        "altText": "SearXNG Icon",
+        "available": true
+    },
+    {"name": "Hastebin",
+        "description": "Pastebin Alternative",
+        "url": "https://hastebin.owens-services.xyz",
+        "iconUrl": "https://raw.githubusercontent.com/nzzane/nzzane-unraid-repo/main/Icons/hastebin.png",
+        "altText": "Hastebin Icon",
+        "available": true
+    },
+    {"name": "Kiwix",
+        "description": "Offline Wikipedia & Content Reader",
+        "url": "https://kiwix.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kiwix.svg",
+        "altText": "Kiwix Icon",
+        "available": true
+    },
+    
+    {"name": "Immich", 
+        "description": "Self-hosted Photo & Video Backup",
+        "url": "https://immich.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/immich.svg",
+        "altText": "Immich Icon",
+        "available": true
     },
     {
         "name": "Audiobookshelf",
         "description": "Audiobook & Podcast Streaming",
         "url": "https://audiobookshelf.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/audiobookshelf.svg",
-        "altText": "Audiobookshelf Icon"
+        "altText": "Audiobookshelf Icon",
+        "available": true
     },
     {
         "name": "Kavita",
         "description": "Comics & Book Server",
         "url": "https://kavita.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kavita.svg",
-        "altText": "Kavita Icon"
+        "altText": "Kavita Icon",
+        "available": true
+    },
+    {"name": "Bookstack",
+        "description": "Documentation & Wiki Management",
+        "url": "https://bookstack.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bookstack.svg",
+        "altText": "Bookstack Icon",
+        "available": false
+    },
+    {"name": "Navidrome",
+        "description": "Self-hosted Music Server",
+        "url": "https://navidrome.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/navidrome.svg",
+        "altText": "Navidrome Icon",
+        "available": false
     }
 ]
