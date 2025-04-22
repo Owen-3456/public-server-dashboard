@@ -63,12 +63,12 @@
         "tags": ["Media", "Books"]
     },
     {
-        "name": "Bookstack",
-        "description": "Documentation & Wiki Management",
-        "url": "https://bookstack.owens-services.xyz",
-        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bookstack.svg",
-        "altText": "Bookstack Icon",
+        "name": "FileBrowser",
+        "description": "File Management & Sharing",
+        "url": "https://filebrowser.owens-services.xyz",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/filebrowser.svg",
+        "altText": "FileBrowser Icon",
         "available": true,
-        "tags": ["Utility"]
+        "tags": ["Utility", "Files"]
     }
 ]
