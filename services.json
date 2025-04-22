@@ -65,7 +65,7 @@
     {
         "name": "FileBrowser",
         "description": "File Management & Sharing",
-        "url": "https://filebrowser.owens-services.xyz",
+        "url": "https://files.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/filebrowser.svg",
         "altText": "FileBrowser Icon",
         "available": true,
