@@ -9,7 +9,8 @@
             "Dynamically load services from services.json.",
             "Dynamically load changelog from changelog.json.",
             "Added available and unavailable status to services.",
-            "Added new services: SearXNG, Hastebin, Kiwix, Immich, Bookstack, Navidrome."
+            "Added tags to services for better organisation.",
+            "Added new services: SearXNG, Hasty Paste, Kiwix, Immich, Bookstack, Navidrome."
         ]
     },
     {
