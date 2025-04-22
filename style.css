@@ -13,12 +13,6 @@
     /* A deeper blue for accents */
     --accent-hover: #537895;
     /* Lighter blue for hover */
-    --status-online: #2ecc71;
-    /* Green */
-    --status-offline: #e74c3c;
-    /* Red */
-    --status-loading: #f39c12;
-    /* Orange */
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
     --font-primary: 'Inter', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -720,9 +714,4 @@ hr {
     /* Use variable */
     margin: var(--spacing-md) 0;
     /* Use variable */
-}
-
-/* Remove bubbles from HTML */
-.bubble {
-    display: none;
 }
