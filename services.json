@@ -27,15 +27,6 @@
         "tags": ["Utility"]
     },
     {
-        "name": "Hasty Paste",
-        "description": "Pastebin Alternative for Code Snippets",
-        "url": "https://hasty-paste.owens-services.xyz",
-        "iconUrl": "https://hastypaste.docs.enchantedcode.co.uk/icon.svg",
-        "altText": "Hasty Paste Icon",
-        "available": false,
-        "tags": ["Utility"]
-    },
-    {
         "name": "Kiwix",
         "description": "Offline Wikipedia & Content Reader",
         "url": "https://kiwix.owens-services.xyz",
@@ -77,16 +68,7 @@
         "url": "https://bookstack.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bookstack.svg",
         "altText": "Bookstack Icon",
-        "available": false,
+        "available": true,
         "tags": ["Utility"]
-    },
-    {
-        "name": "Navidrome",
-        "description": "Self-hosted Music Server",
-        "url": "https://navidrome.owens-services.xyz",
-        "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/navidrome.svg",
-        "altText": "Navidrome Icon",
-        "available": false,
-        "tags": ["Media", "Music"]
     }
 ]
