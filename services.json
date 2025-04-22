@@ -23,12 +23,12 @@
         "altText": "SearXNG Icon",
         "available": true
     },
-    {"name": "Hastebin",
-        "description": "Pastebin Alternative",
-        "url": "https://hastebin.owens-services.xyz",
-        "iconUrl": "https://raw.githubusercontent.com/nzzane/nzzane-unraid-repo/main/Icons/hastebin.png",
-        "altText": "Hastebin Icon",
-        "available": true
+    {"name": "Hasty Paste",
+        "description": "Pastebin Alternative for Code Snippets",
+        "url": "https://hasty-paste.owens-services.xyz",
+        "iconUrl": "https://hastypaste.docs.enchantedcode.co.uk/icon.svg",
+        "altText": "Hasty Paste Icon",
+        "available": false
     },
     {"name": "Kiwix",
         "description": "Offline Wikipedia & Content Reader",
