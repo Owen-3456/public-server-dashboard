@@ -7,7 +7,9 @@
             "Removed status indicators from service cards.",
             "Added search bar to filter services.",
             "Dynamically load services from services.json.",
-            "Dynamically load changelog from changelog.json."
+            "Dynamically load changelog from changelog.json.",
+            "Added available and unavailable status to services.",
+            "Added new services: SearXNG, Hastebin, Kiwix, Immich, Bookstack, Navidrome.",
         ]
     },
     {
