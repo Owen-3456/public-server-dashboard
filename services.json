@@ -17,7 +17,7 @@
     },
     {
         "name": "SearXNG",
-        "description": "Privacy-Respecting Search Engine",
+        "description": "Privacy-Respecting Search Engine Aggregator",
         "url": "https://searxng.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/searxng.svg",
         "altText": "SearXNG Icon",
