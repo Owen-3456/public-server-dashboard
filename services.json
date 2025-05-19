@@ -32,7 +32,7 @@
         "url": "https://kiwix.owens-services.xyz",
         "iconUrl": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/kiwix.svg",
         "altText": "Kiwix Icon",
-        "available": true,
+        "available": false,
         "tags": ["Utility"]
     },
     {
